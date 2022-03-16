@@ -40,7 +40,7 @@ def retrieve_messages(channelid):
     r = requests.get(f'https://discord.com/api/v8/channels/{channelid}/messages', headers=headers)
     jsonn = json.loads(r.text)
 
-    with open(new_file, 'w') as f: # Open up our 'new_file' for writing
+    with open(new_file, 'w', encoding="utf-8") as f: # Open up our 'new_file' for writing
         for value in jsonn: # loop through the contents of each json message entry
             #print(value, '\n') # this shows the entire json content for each json message - we don't want to see the whole raw json message
             #print(value['content'], '\n') #this one shows just the 'content' value for each json message
